@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "eslint": "^8.41.0",
+    "mathlive": "^0.94.6",
     "webpack-sources": "^3.2.3"
   }
 }

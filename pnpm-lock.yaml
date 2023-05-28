@@ -7,6 +7,7 @@ specifiers:
   css-loader: ^6.7.1
   esbuild-loader: ^3.0.1
   eslint: ^8.41.0
+  mathlive: ^0.94.6
   mini-css-extract-plugin: 2.3.0
   sass: ^1.62.1
   sass-loader: ^12.6.0
@@ -20,6 +21,7 @@ specifiers:
 
 dependencies:
   eslint: registry.npmmirror.com/eslint/8.41.0
+  mathlive: registry.npmmirror.com/mathlive/0.94.6
   webpack-sources: registry.npmmirror.com/webpack-sources/3.2.3
 
 devDependencies:
@@ -39,6 +41,16 @@ devDependencies:
   zip-webpack-plugin: registry.npmmirror.com/zip-webpack-plugin/4.0.1_7sy7mtfedxjvnitboawlr2irl4
 
 packages:
+
+  registry.npmmirror.com/@cortex-js/compute-engine/0.12.3:
+    resolution: {integrity: sha512-LuiSWMSlgsLFcRWm5ifR8ZeE9HXWOrJ+hE6F211eVI+S+w9SQQvZhhCdUCBusyspW0+29R8lksJPH4qFFr3Xag==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@cortex-js/compute-engine/-/compute-engine-0.12.3.tgz}
+    name: '@cortex-js/compute-engine'
+    version: 0.12.3
+    engines: {node: '>=16.14.2', npm: '>=8.5.0'}
+    dependencies:
+      complex.js: registry.npmmirror.com/complex.js/2.1.1
+      decimal.js: registry.npmmirror.com/decimal.js/10.4.3
+    dev: false
 
   registry.npmmirror.com/@discoveryjs/json-ext/0.5.7:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz}
@@ -1077,6 +1089,12 @@ packages:
     version: 2.20.3
     dev: true
 
+  registry.npmmirror.com/complex.js/2.1.1:
+    resolution: {integrity: sha512-8njCHOTtFFLtegk6zQo0kkVX1rngygb/KQI6z1qZxlFI3scluC+LVTCFbrkWjBv4vvLlbQ9t88IPMC6k95VTTg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/complex.js/-/complex.js-2.1.1.tgz}
+    name: complex.js
+    version: 2.1.1
+    dev: false
+
   registry.npmmirror.com/concat-map/0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/concat-map/-/concat-map-0.0.1.tgz}
     name: concat-map
@@ -1150,6 +1168,12 @@ packages:
         optional: true
     dependencies:
       ms: registry.npmmirror.com/ms/2.1.2
+
+  registry.npmmirror.com/decimal.js/10.4.3:
+    resolution: {integrity: sha512-VBBaLc1MgL5XpzgIP7ny5Z6Nx3UrRkIViUkPUdtl9aya5amy3De1gsUUSB1g3+3sExYNjCAsAznmukyxCb1GRA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/decimal.js/-/decimal.js-10.4.3.tgz}
+    name: decimal.js
+    version: 10.4.3
+    dev: false
 
   registry.npmmirror.com/deep-is/0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/deep-is/-/deep-is-0.1.4.tgz}
@@ -1892,6 +1916,15 @@ packages:
     dependencies:
       yallist: registry.npmmirror.com/yallist/4.0.0
     dev: true
+
+  registry.npmmirror.com/mathlive/0.94.6:
+    resolution: {integrity: sha512-hiFtauIew87cTmQ6xzDB31hiV+cdQLog522ybNB4Oj0Mxf06+zqQa7uK1jGsiNKqA3+3+Znq6e16q7P5MjYyhg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mathlive/-/mathlive-0.94.6.tgz}
+    name: mathlive
+    version: 0.94.6
+    engines: {node: '>=16.14.2', npm: '>=8.5.0'}
+    dependencies:
+      '@cortex-js/compute-engine': registry.npmmirror.com/@cortex-js/compute-engine/0.12.3
+    dev: false
 
   registry.npmmirror.com/merge-stream/2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/merge-stream/-/merge-stream-2.0.0.tgz}
