@@ -1,7 +1,8 @@
+declare module "siyuan"{
 type TEventBus = "ws-main" | "click-blockicon" | "click-editorcontent" | "click-pdf" |
     "click-editortitleicon" | "open-noneditableblock"
 
-declare global {
+global {
     interface Window {
         Lute: Lute
     }
@@ -30,7 +31,7 @@ interface IWebSocketData {
     sid: string
 }
 
-declare interface IPluginDockTab {
+interface IPluginDockTab {
     position: "LeftTop" | "LeftBottom" | "RightTop" | "RightBottom" | "BottomLeft" | "BottomRight",
     size: { width: number, height: number },
     icon: string,
@@ -218,7 +219,7 @@ export class Menu {
     close(): void;
 }
 
-declare class Lute {
+class Lute {
     public static WalkStop: number;
     public static WalkSkipChildren: number;
     public static WalkContinue: number;
@@ -322,4 +323,5 @@ declare class Lute {
     public BlockDOM2InlineBlockDOM(html: string): string;
 
     public BlockDOM2HTML(html: string): string;
+}
 }

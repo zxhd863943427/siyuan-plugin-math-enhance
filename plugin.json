@@ -1,12 +1,12 @@
 {
-  "name": "plugin-sample",
+  "name": "siyuan-plugin-math-enhance",
   "author": "Vanessa",
   "url": "https://github.com/siyuan-note/plugin-sample",
   "version": "0.0.6",
   "minAppVersion": "2.9.0",
   "displayName": {
-    "default": "Plugin Sample",
-    "zh_CN": "插件示例"
+    "default": "siyuan-plugin-math-enhance",
+    "zh_CN": "数学增强"
   },
   "description": {
     "default": "This is a plugin sample",
