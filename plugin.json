@@ -1,27 +1,27 @@
 {
   "name": "siyuan-plugin-math-enhance",
-  "author": "Vanessa",
-  "url": "https://github.com/siyuan-note/plugin-sample",
-  "version": "0.0.6",
+  "author": "zxhd863943427",
+  "url": "https://github.com/zxhd863943427/siyuan-plugin-math-enhance",
+  "version": "0.0.1",
   "minAppVersion": "2.9.0",
   "displayName": {
     "default": "siyuan-plugin-math-enhance",
     "zh_CN": "数学增强"
   },
   "description": {
-    "default": "This is a plugin sample",
-    "zh_CN": "这是一个插件示例"
+    "default": "WYSIWYG formula editing",
+    "zh_CN": "像写思源笔记一样所见即所得地写数学公式"
   },
   "readme": {
     "default": "README.md",
     "zh_CN": "README_zh_CN.md"
   },
   "funding": {
-    "openCollective": "b3log",
+    "openCollective": "",
     "patreon": "",
     "github": "",
     "custom": [
-      "https://ld246.com/sponsor"
+      "https://afdian.net/a/zxhd86"
     ]
   }
 }
