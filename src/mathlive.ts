@@ -66,6 +66,8 @@ function renderMathLive(naiveDom:boolean,originMathBlock:HTMLElement,debug:boole
     textBlock.appendChild(dyBlock)
     textBlock.appendChild(keyboardBlock)
 
+    initMacros(MathLiveBlock)
+
     addMathLiveListener(latexBlock,MathLiveBlock);
 }
 
@@ -123,6 +125,11 @@ function initMathLiveBlock(latexBlock:HTMLTextAreaElement):HTMLTextAreaElement{
     // mathLiveBlock.style.fontSize = "1.25em";
     
     mathLiveBlock.value = latexBlock.value;
+    return mathLiveBlock;
+}
+
+function initMacros(mathLiveBlock:any){
+    console.log(mathLiveBlock.macros)
     mathLiveBlock.macros = {
         ...mathLiveBlock.macros,
         mark: {
@@ -135,7 +142,6 @@ function initMathLiveBlock(latexBlock:HTMLTextAreaElement):HTMLTextAreaElement{
     tempMacro["\\placeholder"] = "\\phantom";
     tempMacro["\\ensuremath"] = "#1"
     window.siyuan.config.editor.katexMacros = JSON.stringify(tempMacro);
-    return mathLiveBlock;
 }
 
 function initStyle() {
