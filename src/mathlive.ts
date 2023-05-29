@@ -138,6 +138,7 @@ function initMacros(mathLiveBlock:any){
             def: "{\\color{#6495ed}#1}",
             captureSelection: false,
         },
+        rm: "\\mathrm#1",
     };
     var tempMacro = JSON.parse(window.siyuan.config.editor.katexMacros || "{}");
     tempMacro["\\placeholder"] = "\\phantom";
