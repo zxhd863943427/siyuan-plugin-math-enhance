@@ -1,6 +1,6 @@
 {
-  "name": "plugin-sample",
-  "version": "0.0.5",
+  "name": "siyuan-plugin-math-enhance",
+  "version": "0.0.1",
   "description": "This is a sample plugin for Siyuan (https://b3log.org/siyuan)",
   "main": ".src/index.js",
   "scripts": {
