@@ -67,6 +67,7 @@ function renderMathLive(naiveDom:boolean,originMathBlock:HTMLElement,debug:boole
     textBlock.appendChild(keyboardBlock)
 
     initMacros(MathLiveBlock)
+    addShortcut(MathLiveBlock)
 
     addMathLiveListener(latexBlock,MathLiveBlock);
 }
@@ -210,3 +211,29 @@ function initStyle() {
     // document.body.style.setProperty("--keycap-height", "3em");
     document.body.style.setProperty("--keycap-font-size", "1.2em");
 }
+
+function addShortcut(mathLiveBlock:any){
+    mathLiveBlock.keybindings = removeObjByPropertyVal(mathLiveBlock.keybindings, "key","alt+d")
+    mathLiveBlock.keybindings = [
+        ...mathLiveBlock.keybindings,
+        {
+            "key": "alt+d",
+            "ifMode": "math",
+            "command": [
+                "insert",
+                "\\mark{#@}"
+            ]
+        }
+    ]
+}
+
+function removeObjByPropertyVal(objList:any,propName:string, propVal:any) { // propName为要判断的属性名，propVal为要判断的属性值
+    for (var i = 0; i < objList.length; i++) {
+      if (objList[i][propName] == propVal) { // 判断该属性值是否符合要求
+        objList.splice(i, 1); // 使用splice()方法删除该object
+        i--; // 因为删除后后面的元素会向前移动，所以要将i减1
+      }
+    }
+    return objList
+  }
+  
