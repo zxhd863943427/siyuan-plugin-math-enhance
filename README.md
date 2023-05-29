@@ -1,132 +1,22 @@
-[中文](https://github.com/siyuan-note/plugin-sample/blob/main/README_zh_CN.md)
+A plugin that enhances the Siyuan math editing experience.
 
-# SiYuan plugin sample
+### Main Features
 
-## Get started
+Interactive math input
+![Interactive math input](img/%E4%BA%A4%E4%BA%92%E5%BC%8F%E6%95%B0%E5%AD%A6%E8%BE%93%E5%85%A5.gif)
 
-* Make a copy of this repo as a template with the <kbd>Use this template</kbd> button, please note that the repo name
-  must be the same as the plugin name, the default branch must be `main`
-* Clone your repo to a local development folder. For convenience, you can place this folder in
-  your `{workspace}/data/plugins/` folder
-* Install [NodeJS](https://nodejs.org/en/download) and [pnpm](https://pnpm.io/installation), then run `pnpm i` in the
-  command line under your repo folder
-* Execute `pnpm run dev` for real-time compilation
-* Open SiYuan marketplace and enable plugin in downloaded tab
+Math virtual keyboard
+![Math virtual keyboard](img/%E6%95%B0%E5%AD%A6%E8%99%9A%E6%8B%9F%E9%94%AE%E7%9B%98.gif)
 
-## Development
+Math flashcards created in conjunction with a flashcard plugin
 
-* plugin.json
-* icon.png (160*160)
-* preview.png (1024*768)
-* src/*
-* README*.md
-* [Fontend API](https://github.com/siyuan-note/petal)
-* [Backend API](https://github.com/siyuan-note/siyuan/blob/master/API.md)
+Select and press alt+d to create math flashcards
+![Alt text](img/%E9%97%AA%E5%8D%A1%E6%8F%92%E4%BB%B6%E9%9B%86%E6%88%90.gif)
 
-## I18n
+### Acknowledgments
 
-In terms of internationalization, our main consideration is to support multiple languages. Specifically, we need to
-complete the following tasks:
+[zuoez02](https://github.com/zuoez02) for creating the [Siyuan Plugin System](https://github.com/zuoez02/siyuan-plugin-system)
 
-* Meta information about the plugin itself, such as plugin description and readme
-    * `description` and `readme` fields in plugin.json, and the corresponding README*.md file
-* Text used in the plugin, such as button text and tooltips
-    * src/i18n/*.json language configuration files
-    * Use `this.i18.key` to get the text in the code
-* Finally, declare the language supported by the plugin in the `i18n` field in plugin.json
+[svchord](https://github.com/svchord) for reference in the [Arco Calendar Plugin Project](https://github.com/svchord/siyuan-arco-calendar)
 
-It is recommended that the plugin supports at least English and Simplified Chinese, so that more people can use it more
-conveniently.
-
-## plugin.json
-
-```json
-{
-  "name": "plugin-sample",
-  "author": "Vanessa",
-  "url": "https://github.com/siyuan-note/plugin-sample",
-  "version": "0.0.1",
-  "minAppVersion": "2.9.0",
-  "displayName": {
-    "default": "Plugin Sample",
-    "zh_CN": "插件示例"
-  },
-  "description": {
-    "default": "This is a plugin sample",
-    "zh_CN": "这是一个插件示例"
-  },
-  "readme": {
-    "default": "README.md",
-    "zh_CN": "README_zh_CN.md"
-  },
-  "funding": {
-    "openCollective": "b3log",
-    "patreon": "",
-    "github": "",
-    "custom": [
-      "https://ld246.com/sponsor"
-    ]
-  }
-}
-```
-
-* `name`: Plugin name, must be the same as the repo name, and must be unique globally (no duplicate plugin names in the
-  marketplace)
-* `author`: Plugin author name
-* `url`: Plugin repo URL
-* `version`: Plugin version number, it is recommended to follow the [semver](https://semver.org/) specification
-* `minAppVersion`: Minimum version number of SiYuan required to use this plugin
-* `displayName`: Template display name, mainly used for display in the marketplace list, supports multiple languages
-    * `default`: Default language, must exist
-    * `zh_CN`, `en_US` and other languages: optional, it is recommended to provide at least Chinese and English
-* `description`: Plugin description, mainly used for display in the marketplace list, supports multiple languages
-    * `default`: Default language, must exist
-    * `zh_CN`, `en_US` and other languages: optional, it is recommended to provide at least Chinese and English
-* `readme`: readme file name, mainly used to display in the marketplace details page, supports multiple languages
-    * `default`: Default language, must exist
-    * `zh_CN`, `en_US` and other languages: optional, it is recommended to provide at least Chinese and English
-* `funding`: Plugin sponsorship information
-    * `openCollective`: Open Collective name
-    * `patreon`: Patreon name
-    * `github`: GitHub login name
-    * `custom`: Custom sponsorship link list
-
-## Package
-
-No matter which method is used to compile and package, we finally need to generate a package.zip, which contains at
-least the following files:
-
-* icon.png
-* index.js
-* plugin.json
-* preview.png
-* README*.md
-* index.css (optional)
-* i18n/* (optional)
-
-## List on the marketplace
-
-* `pnpm run build` to generate package.zip
-* Create a new GitHub release using your new version number as the "Tag version". See here for an
-  example: https://github.com/siyuan-note/plugin-sample/releases
-* Upload the file package.zip as binary attachments
-* Publish the release
-
-If it is the first release, please create a pull request to
-the [Community Bazaar](https://github.com/siyuan-note/bazaar) repository and modify the plugins.json file in it. This
-file is the index of all community plugin repositories, the format is:
-
-```json
-{
-  "repos": [
-    "username/reponame"
-  ]
-}
-```
-
-After the PR is merged, the bazaar will automatically update the index and deploy through GitHub Actions. When releasing
-a new version of the plugin in the future, you only need to follow the above steps to create a new release, and you
-don't need to PR the community bazaar repo.
-
-Under normal circumstances, the community bazaar repo will automatically update the index and deploy every hour,
-and you can check the deployment status at https://github.com/siyuan-note/bazaar/actions.
+[CortexJS](https://cortexjs.io/mathlive/) for providing the main functionality implementation, I just wrapped it up.
