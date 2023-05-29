@@ -34,15 +34,6 @@ function initMathLiveRender(util:HTMLElement) {
 
 
 function renderMathLive(naiveDom:boolean,originMathBlock:HTMLElement,debug:boolean=false){
-    // console.log("click!")
-    //初始化获得输入框元素
-    // initVitrualKeyboard()
-    //获取当前屏幕
-    let currentScreen:any = document.querySelector(".layout__wnd--active");
-    //获取当前页面
-    let currentPage = currentScreen.querySelector(
-        ".fn__flex-1.protyle:not(.fn__none)"
-    );
     var textBlock = originMathBlock.querySelector(":scope > div")
     var latexBlock:HTMLTextAreaElement|null = originMathBlock.querySelector(":scope > div > textarea")
 
@@ -106,7 +97,7 @@ function addMathLiveListener(latexBlock:HTMLTextAreaElement,MathLiveBlock:any){
             liveCall = false;
             return;
         }
-        MathLiveBlock.setValue(latexBlock.value, {suppressChangeNotifications: true})
+        MathLiveBlock.setValue(latexBlock.value)
     }
     );
 }
@@ -151,8 +142,8 @@ function initStyle() {
     var mathlive_css = document.createElement("style");
     mathlive_css.id = "mathEnhance"
     mathlive_css.innerHTML = `
-#mathlive-popover-panel{
-    z-index: 200;
+#mathlive-suggestion-popover{
+    z-index: 200 !important;
 }
 .ML__keyboard.is-visible{
     height: calc(var(--_keyboard-height) + 10px);
@@ -202,6 +193,13 @@ function initStyle() {
     }
 }
 `;
+    if (isMobile()){
+        mathlive_css.innerHTML = mathlive_css.innerHTML+
+        `
+        .ML__keyboard.is-visible{
+            top: 50%;
+        }`
+    }
     document.head.appendChild(mathlive_css);
     // document.body.style.setProperty("--keycap-height", "3em");
     document.body.style.setProperty("--keycap-font-size", "1.2em");
