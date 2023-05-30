@@ -1,5 +1,9 @@
 A plugin that enhances the Siyuan math editing experience.
 
+Although writing formulas is annoying, cats are adorable, so it's also adorable to have cats write formulas.
+
+If you don't have a cat, you can use this plugin and pretend that this icon is your cat.
+
 ### Main Features
 
 Interactive math input
