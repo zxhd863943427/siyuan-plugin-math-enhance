@@ -119,7 +119,7 @@ function initMathLiveBlock(latexBlock:HTMLTextAreaElement):HTMLTextAreaElement{
     // 初始化样式
     mathLiveBlock.style.cssText = `
     width: -webkit-fill-available; 
-    font-size: 1.25em; 
+    font-size: 1.7em; 
     color: var(--b3-protyle-inline-strong-color); 
     background-color: var(--b3-theme-background);
     `
