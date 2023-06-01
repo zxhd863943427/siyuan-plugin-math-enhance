@@ -20,7 +20,6 @@
     "mini-css-extract-plugin": "2.3.0",
     "sass": "^1.62.1",
     "sass-loader": "^12.6.0",
-    "siyuan": "^0.7.2",
     "tslib": "2.4.0",
     "typescript": "4.7.4",
     "webpack": "^5.76.0",
@@ -30,6 +29,7 @@
   "dependencies": {
     "eslint": "^8.41.0",
     "mathlive": "^0.94.6",
+    "siyuan": "^0.7.2",
     "webpack-sources": "^3.2.3"
   }
 }

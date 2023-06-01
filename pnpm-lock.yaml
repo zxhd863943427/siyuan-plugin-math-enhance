@@ -22,6 +22,7 @@ specifiers:
 dependencies:
   eslint: registry.npmmirror.com/eslint/8.41.0
   mathlive: registry.npmmirror.com/mathlive/0.94.6
+  siyuan: registry.npmmirror.com/siyuan/0.7.2
   webpack-sources: registry.npmmirror.com/webpack-sources/3.2.3
 
 devDependencies:
@@ -33,7 +34,6 @@ devDependencies:
   mini-css-extract-plugin: registry.npmmirror.com/mini-css-extract-plugin/2.3.0_webpack@5.84.1
   sass: registry.npmmirror.com/sass/1.62.1
   sass-loader: registry.npmmirror.com/sass-loader/12.6.0_sass@1.62.1+webpack@5.84.1
-  siyuan: registry.npmmirror.com/siyuan/0.7.2
   tslib: registry.npmmirror.com/tslib/2.4.0
   typescript: registry.npmmirror.com/typescript/4.7.4
   webpack: registry.npmmirror.com/webpack/5.84.1_webpack-cli@5.1.1
@@ -2449,7 +2449,7 @@ packages:
     resolution: {integrity: sha512-+yunPkAkgUX8wredZNf45AlGUEuFg+VeHUJOKauGJ4TeocalrQifxOUlrJuR2wO4v0apD4z6e7mT5Pa1gaFQUQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/siyuan/-/siyuan-0.7.2.tgz}
     name: siyuan
     version: 0.7.2
-    dev: true
+    dev: false
 
   registry.npmmirror.com/slash/3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/slash/-/slash-3.0.0.tgz}
