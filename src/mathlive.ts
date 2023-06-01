@@ -1,6 +1,6 @@
 import { MathfieldElement } from 'mathlive';
 export { initMathLive }
-import { isMobile,showMessage } from 'siyuan';
+import { isMobile } from "./utils"
 
 declare global {
     var mathVirtualKeyboard: any;
@@ -108,7 +108,7 @@ function addMathLiveListener(latexBlock:HTMLTextAreaElement,MathLiveBlock:any){
 function initkeyboardBlock():HTMLElement{
     var keyboardBlock = document.createElement("div");
     keyboardBlock.style.height = "auto";
-    if (!isMobile()) mathVirtualKeyboard.container = keyboardBlock;
+    if (!isMobile) mathVirtualKeyboard.container = keyboardBlock;
     return keyboardBlock
 }
 
@@ -201,7 +201,7 @@ function initStyle() {
     }
 }
 `;
-    if (isMobile()){
+    if (isMobile){
         mathlive_css.innerHTML = mathlive_css.innerHTML+
         `
         .ML__keyboard.is-visible{
