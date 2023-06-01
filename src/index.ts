@@ -1,4 +1,4 @@
-import {Plugin, showMessage, confirm, Dialog, Menu, isMobile, openTab, adaptHotkey} from "siyuan";
+import {Plugin} from "siyuan";
 import "./index.scss";
 import { openMathlive,initMathLive } from "./mathlive";
 
