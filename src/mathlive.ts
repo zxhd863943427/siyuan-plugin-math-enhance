@@ -11,7 +11,8 @@ declare global {
 function initMathLive(){
     MathfieldElement.fontsDirectory = null;
     MathfieldElement.soundsDirectory = null;
-    new MathfieldElement();
+    var mf = new MathfieldElement();
+    mf.smartMode = true;
     initStyle()
 }
 
@@ -112,9 +113,7 @@ function initkeyboardBlock():HTMLElement{
     return keyboardBlock
 }
 
-
 function initMathLiveBlock(latexBlock:HTMLTextAreaElement):HTMLTextAreaElement{
-
     var mathLiveBlock:any = document.createElement("math-field")
     // 初始化样式
     mathLiveBlock.style.cssText = `
@@ -147,6 +146,8 @@ function initMacros(mathLiveBlock:any){
 }
 
 function initStyle() {
+    // 白天黑夜模式，0是白，1是黑
+    var mode = siyuan.config.appearance.mode;
     var mathlive_css = document.createElement("style");
     mathlive_css.id = "mathEnhance"
     mathlive_css.innerHTML = `
@@ -211,6 +212,7 @@ function initStyle() {
     document.head.appendChild(mathlive_css);
     // document.body.style.setProperty("--keycap-height", "3em");
     document.body.style.setProperty("--keycap-font-size", "1.2em");
+    document.body.style.setProperty("--contains-highlight-background-color", mode ? "hsl(212, 40%, 30%)" : "hsl(212, 40%, 90%)");
 }
 
 function addShortcut(mathLiveBlock:any){

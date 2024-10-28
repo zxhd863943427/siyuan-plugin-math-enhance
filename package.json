@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "eslint": "^8.41.0",
-    "mathlive": "^0.94.6",
+    "mathlive": "^0.101.1",
     "siyuan": "^0.7.2",
     "webpack-sources": "^3.2.3"
   }
