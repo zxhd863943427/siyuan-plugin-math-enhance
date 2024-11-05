@@ -236,6 +236,8 @@ function initStyle() {
     // document.body.style.setProperty("--keycap-height", "3em");
     document.body.style.setProperty("--keycap-font-size", "1.2em");
     document.body.style.setProperty("--contains-highlight-background-color", mode ? "hsl(212, 40%, 30%)" : "hsl(212, 40%, 90%)");
+    document.body.style.setProperty("--keycap-shift-font-size", "1.2em");
+    document.body.style.setProperty("--kkeyboard-padding-top", "-2px");
 }
 
 function addShortcut(mathLiveBlock:any){
