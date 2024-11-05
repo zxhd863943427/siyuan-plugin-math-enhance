@@ -1,6 +1,6 @@
 import {Plugin} from "siyuan";
 import "./index.scss";
-import { openMathlive,initMathLive } from "./mathlive";
+import { openMathlive,initMathLive, preloadMathlive } from "./mathlive";
 
 const STORAGE_NAME = "menu-config";
 const TAB_TYPE = "custom_tab";

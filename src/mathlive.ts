@@ -1,6 +1,8 @@
 import { MathfieldElement } from 'mathlive';
 export { initMathLive }
 import { isMobile } from "./utils"
+import * as prettier from "prettier";
+import * as prettierPluginLatex from "prettier-plugin-latex";
 
 declare global {
     var mathVirtualKeyboard: any;
@@ -24,17 +26,17 @@ export function openMathlive({detail}: any){
     var innerText = title.innerText
     if (innerText === siyuan.languages["inline-math"] || innerText === siyuan.languages["math"]){
         console.log("捕获点击数学公式事件")
-        initMathLiveRender(protyleUtil)
+        initMathLiveRender(protyleUtil, title);
     }
 }
 
-function initMathLiveRender(util:HTMLElement) {
+function initMathLiveRender(util:HTMLElement, title:HTMLElement) {
     // var originMathBlock = event.target;
-    setTimeout(() => { renderMathLive(false, util); }, 10);
+    setTimeout(() => { renderMathLive(false, util, title); }, 10);
 };
 
 
-function renderMathLive(naiveDom:boolean,originMathBlock:HTMLElement,debug:boolean=false){
+function renderMathLive(naiveDom:boolean,originMathBlock:HTMLElement, titleBlock:HTMLElement,debug:boolean=false){
     var textBlock = originMathBlock.querySelector(":scope > div")
     var latexBlock:HTMLTextAreaElement|null = originMathBlock.querySelector(":scope > div > textarea")
 
@@ -71,6 +73,16 @@ function renderMathLive(naiveDom:boolean,originMathBlock:HTMLElement,debug:boole
     addShortcut(MathLiveBlock)
 
     addMathLiveListener(latexBlock,MathLiveBlock);
+    titleBlock.dispatchEvent(new MouseEvent("mousedown", {
+        view: window,
+        bubbles: true,
+        cancelable: true
+    }));
+    titleBlock.dispatchEvent(new MouseEvent("mouseup", {
+        view: window,
+        bubbles: true,
+        cancelable: true
+    }));
 }
 
 function addMathLiveListener(latexBlock:HTMLTextAreaElement,MathLiveBlock:any){
@@ -81,14 +93,25 @@ function addMathLiveListener(latexBlock:HTMLTextAreaElement,MathLiveBlock:any){
         bubbles: true,
         cancelable: true
       })
-    MathLiveBlock.addEventListener("input", () => {
+    MathLiveBlock.addEventListener("input", async () => {
         //替换标记宏
         var expendLatex = MathLiveBlock.getValue("latex-expanded");
         
-        latexBlock.value = expendLatex.replace(/\{\\textcolor\{#6495ed\}\{(.+?)\}\}/g, "\\mark{$1}").replace(/\\textcolor\{#6495ed\}\{(.+?)\}/g, "\\mark{$1}");
+        var originLatex = expendLatex.replace(/\{\\textcolor\{#6495ed\}\{(.+?)\}\}/g, "\\mark{$1}").replace(/\\textcolor\{#6495ed\}\{(.+?)\}/g, "\\mark{$1}");
+        var formattedLatex = "$" + originLatex + "$";
+        formattedLatex = await prettier.format(
+            "$" + originLatex + "$",
+            {
+                printWidth: 80,
+                useTabs: true,
+                tabWidth: 2,
+                parser: "latex-parser",
+                plugins: [prettierPluginLatex]
+            }
+        );
+        latexBlock.value = formattedLatex.slice(1,-1);
         if (tempLatex === MathLiveBlock.value) {
             tempLatex = MathLiveBlock.value;
-            // console.log(tempLatex)
             return
         }
         tempLatex = MathLiveBlock.value;
