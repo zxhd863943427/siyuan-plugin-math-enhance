@@ -1,8 +1,6 @@
 import { MathfieldElement } from 'mathlive';
 export { initMathLive }
 import { isMobile } from "./utils"
-import * as prettier from "prettier";
-import * as prettierPluginLatex from "prettier-plugin-latex";
 
 declare global {
     var mathVirtualKeyboard: any;
@@ -95,21 +93,10 @@ function addMathLiveListener(latexBlock:HTMLTextAreaElement,MathLiveBlock:any){
       })
     MathLiveBlock.addEventListener("input", async () => {
         //替换标记宏
-        var expendLatex = MathLiveBlock.getValue("latex-expanded");
-        
-        var originLatex = expendLatex.replace(/\{\\textcolor\{#6495ed\}\{(.+?)\}\}/g, "\\mark{$1}").replace(/\\textcolor\{#6495ed\}\{(.+?)\}/g, "\\mark{$1}");
-        var formattedLatex = "$" + originLatex + "$";
-        formattedLatex = await prettier.format(
-            "$" + originLatex + "$",
-            {
-                printWidth: 80,
-                useTabs: true,
-                tabWidth: 2,
-                parser: "latex-parser",
-                plugins: [prettierPluginLatex]
-            }
-        );
-        latexBlock.value = formattedLatex.slice(1,-1);
+        var rawLatex = MathLiveBlock.getValue("latex");
+
+        var originLatex = rawLatex.replace(/\{\\textcolor\{#6495ed\}\{(.+?)\}\}/g, "\\mark{$1}").replace(/\\textcolor\{#6495ed\}\{(.+?)\}/g, "\\mark{$1}");
+        latexBlock.value = originLatex;
         if (tempLatex === MathLiveBlock.value) {
             tempLatex = MathLiveBlock.value;
             return
@@ -253,7 +240,39 @@ function addShortcut(mathLiveBlock:any){
             ]
         }
     ]
+    addSpaceAcceptSuggestion(mathLiveBlock)
 }
+
+function addSpaceAcceptSuggestion(mathLiveBlock:any){
+    mathLiveBlock.addEventListener("keydown", (ev: KeyboardEvent) => {
+        if (ev.key !== " " && ev.code !== "Space") {
+            return;
+        }
+        if (!isSuggestionVisible()) {
+            return;
+        }
+        ev.preventDefault();
+        ev.stopPropagation();
+        mathLiveBlock.executeCommand("complete", "accept-suggestion");
+        mathLiveBlock.executeCommand("complete");
+    }, true);
+}
+
+function isSuggestionVisible(): boolean {
+    const popover = document.querySelector("#mathlive-suggestion-popover") as HTMLElement | null;
+    if (!popover) {
+        return false;
+    }
+    if (popover.classList.contains("is-visible")) {
+        return true;
+    }
+    const style = window.getComputedStyle(popover);
+    if (style.display === "none" || style.visibility === "hidden") {
+        return false;
+    }
+    return popover.offsetParent !== null;
+}
+
 
 function removeObjByPropertyVal(objList:any,propName:string, propVal:any) { // propName为要判断的属性名，propVal为要判断的属性值
     for (var i = 0; i < objList.length; i++) {
